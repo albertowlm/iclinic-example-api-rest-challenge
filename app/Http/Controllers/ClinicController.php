@@ -19,7 +19,6 @@ class ClinicController extends Controller
 
     public function index(Request $request)
     {
-        dd(Hash::make('rickandmorty'));
        return $this->service->getByFilters($request);
     }
 
