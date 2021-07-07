@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  title: Medicinae Backend
+  version: '0.1'
+servers:
+  - url: 'http://localhost'
+    description: Local
+  - url: 'https://feature.api.medicinaesolutions.com'
+    description: Feature
+  - url: 'https://dev.api.medicinaesolutions.com'
+    description: Dev
+  - url: 'https://homolog.api.medicinaesolutions.com'
+    description: Homolog
+  - url: 'https://api.medicinaesolutions.com'
+    description: Production
+
+security:
+  - medicinae_auth: []
+paths:
+  /clinics:
+    post:
+      tags:
+        - Clinics
+      summary: >-
+        Clinics Store
+      requestBody:
+        description: Data for Clinics
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClinicRequestModel'
+      responses:
+        '201':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClinicRequestModel'
+
+
+
+  /api/v1/clinics/{clinics_id}:
+      get:
+        tags:
+          - Clinics
+        summary: Clinics Get
+        description: >-
+          Retorna a listagem do Clinics, possibilidade de filtros e
+          includes.
+        parameters:
+
+        responses:
+          '200':
+            description: sucesso
+            content:
+              application/json:
+                schema:
+                  required:
+                    - data
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ClinicRequestModel'
+                  type: object
+
+      put:
+        tags:
+          - Clinics
+        summary: >-
+          Clinics Update
+        parameters:
+          - name: name
+            in: path
+            description: Clinic Name
+            required: true
+            schema:
+              type: string
+        requestBody:
+          description: Dados do Clinics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClinicsRequestModel'
+        responses:
+          '201':
+            description: sucesso
+            content:
+              application/json:
+                schema:
+                  type: object
+                  required:
+                    - data
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ClinicRequestModel'
+                    error:
+                      type: boolean
+                      example: false
+      delete:
+        tags:
+          - Clinics
+        summary: Clinics Delete
+        parameters:
+
+        responses:
+          '200':
+            description: sucesso
+            content:
+              application/json:
+                schema:
+                  required:
+                    - error
+                    - messages
+                  properties:
+                    error:
+                      type: boolean
+                      example: 'false'
+                    messages:
+                      type: array
+                      items:
+                        type: string
+                        example: Clinics excluído com sucesso
+                  type: object
+components:
+  schemas:
+    ClinicRequestModel:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+    ClinicsRequestModel:
+        type: object
+        properties:
+          name:
+            type: string
+
+  securitySchemes:
+    medicinae_auth:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: /oauth/token
+          scopes: {}
+tags:
+  - name: Clinics
+    description: Api's Clinics
