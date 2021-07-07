@@ -25,107 +25,107 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get(
     'clinics',
     [ClinicController::class, 'index']
-);
+)->middleware('auth:api');
 
 Route::get(
     'clinics/{id}',
     [ClinicController::class, 'getById']
-);
+)->middleware('auth:api');
 
 Route::post(
     'clinics',
     [ClinicController::class, 'store']
-);
+)->middleware('auth:api');
 
 
 Route::put(
     'clinics/{id}',
     [ClinicController::class, 'update']
-);
+)->middleware('auth:api');
 
 Route::delete(
     'clinics/{id}',
     [ClinicController::class, 'delete']
-);
+)->middleware('auth:api');
 
 // PATIENTS
 Route::get(
     'patients',
     [PatientController::class, 'index']
-);
+)->middleware('auth:api');
 
 Route::get(
     'patients/{id}',
     [PatientController::class, 'getById']
-);
+)->middleware('auth:api');
 
 Route::post(
     'patients',
     [PatientController::class, 'store']
-);
+)->middleware('auth:api');
 
 
 Route::put(
     'patients/{id}',
     [PatientController::class, 'update']
-);
+)->middleware('auth:api');
 
 Route::delete(
     'patients/{id}',
     [PatientController::class, 'delete']
-);
+)->middleware('auth:api');
 
 // PHYSICIANS
 Route::get(
     'physicians',
     [PhysicianController::class, 'index']
-);
+)->middleware('auth:api');
 
 Route::get(
     'physicians/{id}',
     [PhysicianController::class, 'getById']
-);
+)->middleware('auth:api');
 
 Route::post(
     'physicians',
     [PhysicianController::class, 'store']
-);
+)->middleware('auth:api');
 
 
 Route::put(
     'physicians/{id}',
     [PhysicianController::class, 'update']
-);
+)->middleware('auth:api');
 
 Route::delete(
     'physicians/{id}',
     [PhysicianController::class, 'delete']
-);
+)->middleware('auth:api');
 
 
 // PRESCRIPTIONS
 Route::get(
     'physicians',
     [PrescriptionController::class, 'index']
-);
+)->middleware('auth:api');
 
 Route::get(
     'physicians/{id}',
     [PrescriptionController::class, 'getById']
-);
+)->middleware('auth:api');
 
 Route::post(
     'physicians',
     [PrescriptionController::class, 'store']
-);
+)->middleware('auth:api');
 
 
 Route::put(
     'physicians/{id}',
     [PrescriptionController::class, 'update']
-);
+)->middleware('auth:api');
 
 Route::delete(
     'physicians/{id}',
     [PrescriptionController::class, 'delete']
-);
+)->middleware('auth:api');
