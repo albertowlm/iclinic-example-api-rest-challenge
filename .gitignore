@@ -4,6 +4,7 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # Node artifact files
+vender/
 node_modules/
 dist/
 
@@ -47,4 +48,4 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-
+.env
