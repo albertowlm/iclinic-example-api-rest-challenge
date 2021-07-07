@@ -1,0 +1,45 @@
+<?php
+namespace App\Http\Controllers;
+
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use App\Services\ClinicService;
+use Illuminate\Support\Facades\Hash;
+
+class ClinicController extends Controller
+{
+
+    protected $service;
+
+    public function __construct(ClinicService $service)
+    {
+        $this->service = $service;
+    }
+
+    public function index(Request $request)
+    {
+        dd(Hash::make('rickandmorty'));
+       return $this->service->getByFilters($request);
+    }
+
+    public function getById($id)
+    {
+      return $this->service->getById($id);
+    }
+
+    public function store(Request $request)
+    {
+      return $this->service->store($request);
+    }
+
+    public function update(Request $request,$id)
+    {
+      return $this->service->update($id,$request);
+    }
+
+    public function delete($id)
+    {
+        return $this->service->delete($id);
+    }
+}
