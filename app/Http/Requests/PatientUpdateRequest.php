@@ -24,7 +24,6 @@ class PatientUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:patients,id',
             'name' => 'required|string',
             'email' => 'required|string|email',
             'phone' => 'required|string'

@@ -24,7 +24,6 @@ class PhysicianUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:physicians,id',
             'name' => 'required|string',
             'crm' => 'required|string'
         ];

@@ -24,7 +24,6 @@ class PrescriptionUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:prescriptions,id',
             'clinic_id' => 'required|string|exists:clinics,id',
             'patient_id' => 'required|string|exists:patients,id',
             'physician_id' => 'required|string|exists:physicians,id',

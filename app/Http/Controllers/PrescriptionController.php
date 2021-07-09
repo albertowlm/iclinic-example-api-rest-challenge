@@ -29,7 +29,7 @@ class PrescriptionController extends Controller
         return $result;
     }
 
-    public function getById($id, PrescriptionGetOrDeleteRequest $request)
+    public function getById($id)
     {
         return $this->service->getById($id);
     }
@@ -44,7 +44,7 @@ class PrescriptionController extends Controller
         return $this->service->update($id, $request);
     }
 
-    public function delete($id, PrescriptionGetOrDeleteRequest $request)
+    public function delete($id)
     {
         return $this->service->delete($id);
     }

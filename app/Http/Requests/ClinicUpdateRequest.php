@@ -24,7 +24,6 @@ class ClinicUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:clinics,id',
             'name' => 'required|string'
         ];
     }

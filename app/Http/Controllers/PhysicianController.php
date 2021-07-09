@@ -24,7 +24,7 @@ class PhysicianController extends Controller
        return $this->service->getByFilters($request);
     }
 
-    public function getById($id, PhysicianGetOrDeleteRequest $request)
+    public function getById($id)
     {
         return $this->service->getById($id);
     }
@@ -39,7 +39,7 @@ class PhysicianController extends Controller
         return $this->service->update($id, $request);
     }
 
-    public function delete($id, PhysicianGetOrDeleteRequest $request)
+    public function delete($id)
     {
         return $this->service->delete($id);
     }
