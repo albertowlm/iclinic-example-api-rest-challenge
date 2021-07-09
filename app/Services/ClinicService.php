@@ -26,10 +26,13 @@ class ClinicService extends BaseCrudService
 
     public function getByFilters(Request $request)
     {
+        $requestArray = $request->all();
+        $perPage = $requestArray['per_page'] ?? 10;
         $model = $this->model;
         $model = $this->filterWhere('id', $request, $model);
         $model = $this->filterWhereLike('name', $request, $model);
 
-        return $model->get();
+        return $model->paginate($perPage);
+
     }
 }

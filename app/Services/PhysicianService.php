@@ -21,17 +21,25 @@ class PhysicianService extends BaseCrudService
         if ($request->has('name') and !empty($request->name)) {
             $model->name = $request->name;
         }
-        $model->crm = 'CRM-'.uniqid();
+        if ($request->has('crm') and !empty($request->crm)) {
+            $model->crm = $request->crm;
+        }
+        else {
+            $model->crm = 'CRM-' . uniqid();
+        }
+
         return $model;
     }
 
     public function getByFilters(Request $request)
     {
+        $requestArray = $request->all();
+        $perPage = $requestArray['per_page'] ?? 10;
         $model = $this->model;
         $model = $this->filterWhere('id', $request, $model);
         $model = $this->filterWhereLike('name', $request, $model);
         $model = $this->filterWhereLike('crm', $request, $model);
 
-        return $model->get();
+        return $model->paginate($perPage);
     }
 }

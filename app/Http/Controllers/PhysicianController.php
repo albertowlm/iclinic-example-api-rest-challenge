@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\PhysicianGetOrDeleteRequest;
+use App\Http\Requests\PhysicianStoreRequest;
+use App\Http\Requests\PhysicianUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\PhysicianService;
@@ -21,22 +24,22 @@ class PhysicianController extends Controller
        return $this->service->getByFilters($request);
     }
 
-    public function getById($id)
+    public function getById($id, PhysicianGetOrDeleteRequest $request)
     {
-      return $this->service->getById($id);
+        return $this->service->getById($id);
     }
 
-    public function store(Request $request)
+    public function store(PhysicianStoreRequest $request)
     {
-      return $this->service->store($request);
+        return $this->service->store($request);
     }
 
-    public function update(Request $request,$id)
+    public function update($id, PhysicianUpdateRequest $request)
     {
-      return $this->service->update($id,$request);
+        return $this->service->update($id, $request);
     }
 
-    public function delete($id)
+    public function delete($id, PhysicianGetOrDeleteRequest $request)
     {
         return $this->service->delete($id);
     }

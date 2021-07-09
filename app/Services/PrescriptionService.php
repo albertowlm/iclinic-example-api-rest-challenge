@@ -35,13 +35,73 @@ class PrescriptionService extends BaseCrudService
 
     public function getByFilters(Request $request)
     {
-        $model = $this->model;
-        $model = $this->filterWhere('id', $request, $model);
-        $model = $this->filterWhere('clinic_id', $request, $model);
-        $model = $this->filterWhere('physician_id', $request, $model);
-        $model = $this->filterWhere('patient_id', $request, $model);
-        $model = $this->filterWhereLike('text', $request, $model);
+        $requestArray = $request->all();
+        $perPage = $requestArray['per_page'] ?? 10;
+        $clinicId = $requestArray['clinic_id'] ?? null;
+        $physicianId = $requestArray['physician_id'] ?? null;
+        $patientId = $requestArray['patient_id'] ?? null;
+        $text = $requestArray['text'] ?? null;
+        $patientOrPhysicianName = $requestArray['patient_or_physician_name'] ?? null;
 
-        return $model->get();
+        $result = Prescription::getQuery()
+            ->selectRaw(
+               'prescriptions.id   AS id,
+                prescriptions.text AS text,
+                clinics.id         AS clinics_id,
+                clinics.name       AS clinics_name,
+                patients.id        AS patients_id,
+                patients.name      AS patients_name,
+                patients.email     AS patients_email,
+                patients.phone     AS patients_phone,
+                physicians.id      AS physicians_id,
+                physicians.name    AS physicians_name,
+                physicians.crm     AS physicians_crm,
+                null               AS resource' // BUG Laravel ResourceCollection
+            )
+            ->join('clinics', 'clinics.id', '=', 'prescriptions.clinic_id')
+            ->join('physicians', 'physicians.id', '=', 'prescriptions.physician_id')
+            ->join('patients', 'patients.id', '=', 'prescriptions.patient_id')
+            ->when($clinicId, function ($query, $value) {
+                return $query->where(
+                    'clinics.id',
+                    $value
+                );
+            })
+            ->when($physicianId, function ($query, $value) {
+                return $query->where(
+                    'physicians.id',
+                    $value
+                );
+            })
+            ->when($patientId, function ($query, $value) {
+                return $query->where(
+                    'patients.id',
+                    $value
+                );
+            })
+            ->when($text, function ($query, $value) {
+                return $query->where(
+                    'prescriptions.text',
+                    'LIKE',
+                    '%' . $value . '%'
+                );
+            })
+            ->when($patientOrPhysicianName, function ($query, $value) {
+                return $query->where(
+                    'physicians.name',
+                    'LIKE',
+                    '%' . $value . '%'
+                );
+            })
+            ->when($patientOrPhysicianName, function ($query, $value) {
+                return $query->orWhere(function ($query) use ($value) {
+                    $query->where('patients.name',
+                        'LIKE',
+                        '%' . $value . '%');
+                });
+            });
+
+        return $result->paginate($perPage);
     }
+
 }

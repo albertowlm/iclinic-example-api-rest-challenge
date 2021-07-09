@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\ClinicGetOrDeleteRequest;
+use App\Http\Requests\ClinicStoreRequest;
+use App\Http\Requests\ClinicUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\ClinicService;
-use Illuminate\Support\Facades\Hash;
 
 class ClinicController extends Controller
 {
@@ -19,25 +22,25 @@ class ClinicController extends Controller
 
     public function index(Request $request)
     {
-       return $this->service->getByFilters($request);
+        return $this->service->getByFilters($request);
     }
 
-    public function getById($id)
+    public function getById($id, ClinicGetOrDeleteRequest $request)
     {
-      return $this->service->getById($id);
+        return $this->service->getById($id);
     }
 
-    public function store(Request $request)
+    public function store(ClinicStoreRequest $request)
     {
-      return $this->service->store($request);
+        return $this->service->store($request);
     }
 
-    public function update(Request $request,$id)
+    public function update($id, ClinicUpdateRequest $request)
     {
-      return $this->service->update($id,$request);
+        return $this->service->update($id, $request);
     }
 
-    public function delete($id)
+    public function delete($id, ClinicGetOrDeleteRequest $request)
     {
         return $this->service->delete($id);
     }

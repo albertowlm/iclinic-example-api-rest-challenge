@@ -105,27 +105,27 @@ Route::delete(
 
 // PRESCRIPTIONS
 Route::get(
-    'physicians',
+    'prescriptions',
     [PrescriptionController::class, 'index']
 )->middleware('auth:api');
 
 Route::get(
-    'physicians/{id}',
+    'prescriptions/{id}',
     [PrescriptionController::class, 'getById']
 )->middleware('auth:api');
 
 Route::post(
-    'physicians',
+    'prescriptions',
     [PrescriptionController::class, 'store']
 )->middleware('auth:api');
 
 
 Route::put(
-    'physicians/{id}',
+    'prescriptions/{id}',
     [PrescriptionController::class, 'update']
 )->middleware('auth:api');
 
 Route::delete(
-    'physicians/{id}',
+    'prescriptions/{id}',
     [PrescriptionController::class, 'delete']
 )->middleware('auth:api');

@@ -30,21 +30,22 @@ class BaseCrudService
     {
         $model = $this->handleData($data, $this->model);
         $model->save();
-        return [
-            'error' => false,
-            'messages' => 'Created on database'
-        ];
+
+        return $model->toArray();
     }
 
     public function update($id, Request $request)
     {
         $model = $this->model->find($id);
+        if(empty($model)){
+            return [
+                'error' => true,
+                'messages' => 'Not Found'
+            ];
+        }
         $model = $this->handleData($request, $model);
         $model->save();
-        return [
-            'error' => false,
-            'messages' => 'Updated on database'
-        ];
+        return $model->toArray();
     }
 
     public function delete($id)
