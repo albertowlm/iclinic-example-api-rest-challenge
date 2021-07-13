@@ -26,7 +26,6 @@ class PaginatedResourceResponse extends ResourceResponse
             $this->calculateStatus()
         ), function ($response) use ($request) {
             $response->original = $this->resource->resource->map(function ($item) {
-               // dd($item,$item->resource,is_array($item) ? Arr::get($item, 'resource') : $item->resource);
                 return is_array($item) ? Arr::get($item, 'resource') : $item->resource;
             });
 
