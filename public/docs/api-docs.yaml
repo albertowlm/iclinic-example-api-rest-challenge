@@ -64,6 +64,17 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ClinicRequestModel'
+                  links:
+                        properties:
+                          first:
+                            type: string
+                          last:
+                            type: string
+                          prev:
+                            type: boolean
+                          next:
+                            type: boolean
+                        type: object
                   meta:
                     properties:
                       current_page:
@@ -88,15 +99,15 @@ paths:
                         type: number
                       total:
                         type: number
-                  links:
-                    properties:
-                      url:
-                        type: string
-                      label:
-                        type: string
-                      active:
-                        type: boolean
-                    type: object
+                      links:
+                        properties:
+                          url:
+                            type: string
+                          label:
+                            type: string
+                          active:
+                            type: boolean
+                        type: object
 
   /api/v1/clinics/{clinic_id}:
       get:
@@ -233,6 +244,17 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PatientRequestModel'
+                  links:
+                        properties:
+                          first:
+                            type: string
+                          last:
+                            type: string
+                          prev:
+                            type: boolean
+                          next:
+                            type: boolean
+                        type: object
                   meta:
                     properties:
                       current_page:
@@ -257,15 +279,15 @@ paths:
                         type: number
                       total:
                         type: number
-                  links:
-                    properties:
-                      url:
-                        type: string
-                      label:
-                        type: string
-                      active:
-                        type: boolean
-                    type: object
+                      links:
+                        properties:
+                          url:
+                            type: string
+                          label:
+                            type: string
+                          active:
+                            type: boolean
+                        type: object
 
   /api/v1/patients/{patient_id}:
     get:
@@ -396,6 +418,17 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PhysicianRequestModel'
+                  links:
+                        properties:
+                          first:
+                            type: string
+                          last:
+                            type: string
+                          prev:
+                            type: boolean
+                          next:
+                            type: boolean
+                        type: object
                   meta:
                     properties:
                       current_page:
@@ -420,15 +453,15 @@ paths:
                         type: number
                       total:
                         type: number
-                  links:
-                    properties:
-                      url:
-                        type: string
-                      label:
-                        type: string
-                      active:
-                        type: boolean
-                    type: object
+                      links:
+                        properties:
+                          url:
+                            type: string
+                          label:
+                            type: string
+                          active:
+                            type: boolean
+                        type: object
 
   /api/v1/physicians/{physician_id}:
     get:
@@ -577,6 +610,17 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PrescriptionsGetListModel'
+                  links:
+                        properties:
+                          first:
+                            type: string
+                          last:
+                            type: string
+                          prev:
+                            type: boolean
+                          next:
+                            type: boolean
+                        type: object
                   meta:
                     properties:
                       current_page:
@@ -601,15 +645,15 @@ paths:
                         type: number
                       total:
                         type: number
-                  links:
-                    properties:
-                      url:
-                        type: string
-                      label:
-                        type: string
-                      active:
-                        type: boolean
-                    type: object
+                      links:
+                        properties:
+                          url:
+                            type: string
+                          label:
+                            type: string
+                          active:
+                            type: boolean
+                        type: object
 
   /api/v1/prescriptions/{prescription_id}:
     get:
