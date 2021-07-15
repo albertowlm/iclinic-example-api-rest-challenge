@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\ClinicGetOrDeleteRequest;
 use App\Http\Requests\ClinicStoreRequest;
 use App\Http\Requests\ClinicUpdateRequest;
+use App\Http\Resources\ClinicResource;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\ClinicService;
@@ -22,7 +22,9 @@ class ClinicController extends Controller
 
     public function index(Request $request)
     {
-        return $this->service->getByFilters($request);
+        $pagination = $this->service->getByFilters($request);
+        $result = new ClinicResource($pagination);
+        return $result;
     }
 
     public function getById($id)

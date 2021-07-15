@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\PhysicianGetOrDeleteRequest;
 use App\Http\Requests\PhysicianStoreRequest;
 use App\Http\Requests\PhysicianUpdateRequest;
+use App\Http\Resources\PhysicianResource;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\PhysicianService;
@@ -21,7 +21,9 @@ class PhysicianController extends Controller
 
     public function index(Request $request)
     {
-       return $this->service->getByFilters($request);
+        $pagination = $this->service->getByFilters($request);
+        $result = new PhysicianResource($pagination);
+        return $result;
     }
 
     public function getById($id)

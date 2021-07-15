@@ -15,14 +15,6 @@ class PrescriptionResource extends ResourceCollection
      */
     public function toArray($request)
     {
-
-        //dd('aaaffff');
-      /*  return [
-          'data' => $this->collection
-        ];
-*/
-        //dd('aaa');
-        //dd($this->collection);
         $result = $this->collection->map(function ($item, $key) {
             return [
                 "id" => $item->id,
@@ -44,8 +36,6 @@ class PrescriptionResource extends ResourceCollection
             ];
         });
 
-
-       // dd($this->collection);
         return $result;
     }
 }

@@ -1,10 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
-
-use App\Http\Requests\PatientGetOrDeleteRequest;
 use App\Http\Requests\PatientStoreRequest;
 use App\Http\Requests\PatientUpdateRequest;
+use App\Http\Resources\PatientResource;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\PatientService;
@@ -21,7 +20,9 @@ class PatientController extends Controller
 
     public function index(Request $request)
     {
-       return $this->service->getByFilters($request);
+        $pagination = $this->service->getByFilters($request);
+        $result = new PatientResource($pagination);
+        return $result;
     }
 
     public function getById($id)
