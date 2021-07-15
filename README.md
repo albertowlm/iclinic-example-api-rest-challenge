@@ -12,7 +12,7 @@ Implementar um aplicativo em React Native para cadastrar prescrições médicas,
 
 O mockup das telas do aplicativo foi disponibilizado no [FIGMA](https://www.figma.com/file/NoyRAtYBv5LFLhN8Q6rLql/Mobile-Challenge).
 
-As APIs que serão utilizadas durante o desafio foram disponibilizadas e podem ser consultadas pela documentação [LINK]() e pela exportação do [POSTMAN]().
+As APIs [LINK](https://iclinic-example-api-rest.herokuapp.com) que serão utilizadas durante o desafio foram disponibilizadas e podem ser consultadas pela documentação [LINK](https://iclinic-example-api-rest.herokuapp.com/documentation) e pela exportação do [POSTMAN](https://github.com/albertowlm/iclinic-example-api-rest-challenge/tree/main/postman).
 
 * A tela de login deverá verificar a autenticação do usuário:
     * Caso positivo:
