@@ -71,9 +71,9 @@ paths:
                           last:
                             type: string
                           prev:
-                            type: boolean
+                            type: string
                           next:
-                            type: boolean
+                            type: string
                         type: object
                   meta:
                     properties:
@@ -251,9 +251,9 @@ paths:
                           last:
                             type: string
                           prev:
-                            type: boolean
+                            type: string
                           next:
-                            type: boolean
+                            type: string
                         type: object
                   meta:
                     properties:
@@ -425,9 +425,9 @@ paths:
                           last:
                             type: string
                           prev:
-                            type: boolean
+                            type: string
                           next:
-                            type: boolean
+                            type: string
                         type: object
                   meta:
                     properties:
@@ -617,9 +617,9 @@ paths:
                           last:
                             type: string
                           prev:
-                            type: boolean
+                            type: string
                           next:
-                            type: boolean
+                            type: string
                         type: object
                   meta:
                     properties:
