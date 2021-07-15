@@ -64,28 +64,30 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ClinicRequestModel'
-                  current_page:
-                    type: number
-                  count:
-                    type: number
-                  first_page_url:
-                    type: string
-                  next_page_url:
-                    type: string
-                  from:
-                    type: number
-                  per_page:
-                    type: number
-                  last_page:
-                    type: number
-                  last_url:
-                    type: string
-                  path:
-                    type: string
-                  to:
-                    type: number
-                  total:
-                    type: number
+                  meta:
+                    properties:
+                      current_page:
+                        type: number
+                      count:
+                        type: number
+                      first_page_url:
+                        type: string
+                      next_page_url:
+                        type: string
+                      from:
+                        type: number
+                      per_page:
+                        type: number
+                      last_page:
+                        type: number
+                      last_url:
+                        type: string
+                      path:
+                        type: string
+                      to:
+                        type: number
+                      total:
+                        type: number
                   links:
                     properties:
                       url:
@@ -231,28 +233,30 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PatientRequestModel'
-                  current_page:
-                    type: number
-                  count:
-                    type: number
-                  first_page_url:
-                    type: string
-                  next_page_url:
-                    type: string
-                  from:
-                    type: number
-                  per_page:
-                    type: number
-                  last_page:
-                    type: number
-                  last_url:
-                    type: string
-                  path:
-                    type: string
-                  to:
-                    type: number
-                  total:
-                    type: number
+                  meta:
+                    properties:
+                      current_page:
+                        type: number
+                      count:
+                        type: number
+                      first_page_url:
+                        type: string
+                      next_page_url:
+                        type: string
+                      from:
+                        type: number
+                      per_page:
+                        type: number
+                      last_page:
+                        type: number
+                      last_url:
+                        type: string
+                      path:
+                        type: string
+                      to:
+                        type: number
+                      total:
+                        type: number
                   links:
                     properties:
                       url:
@@ -392,28 +396,30 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PhysicianRequestModel'
-                  current_page:
-                    type: number
-                  count:
-                    type: number
-                  first_page_url:
-                    type: string
-                  next_page_url:
-                    type: string
-                  from:
-                    type: number
-                  per_page:
-                    type: number
-                  last_page:
-                    type: number
-                  last_url:
-                    type: string
-                  path:
-                    type: string
-                  to:
-                    type: number
-                  total:
-                    type: number
+                  meta:
+                    properties:
+                      current_page:
+                        type: number
+                      count:
+                        type: number
+                      first_page_url:
+                        type: string
+                      next_page_url:
+                        type: string
+                      from:
+                        type: number
+                      per_page:
+                        type: number
+                      last_page:
+                        type: number
+                      last_url:
+                        type: string
+                      path:
+                        type: string
+                      to:
+                        type: number
+                      total:
+                        type: number
                   links:
                     properties:
                       url:
@@ -571,28 +577,30 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/PrescriptionsGetListModel'
-                  current_page:
-                    type: number
-                  count:
-                    type: number
-                  first_page_url:
-                    type: string
-                  next_page_url:
-                    type: string
-                  from:
-                    type: number
-                  per_page:
-                    type: number
-                  last_page:
-                    type: number
-                  last_url:
-                    type: string
-                  path:
-                    type: string
-                  to:
-                    type: number
-                  total:
-                    type: number
+                  meta:
+                    properties:
+                      current_page:
+                        type: number
+                      count:
+                        type: number
+                      first_page_url:
+                        type: string
+                      next_page_url:
+                        type: string
+                      from:
+                        type: number
+                      per_page:
+                        type: number
+                      last_page:
+                        type: number
+                      last_url:
+                        type: string
+                      path:
+                        type: string
+                      to:
+                        type: number
+                      total:
+                        type: number
                   links:
                     properties:
                       url:
