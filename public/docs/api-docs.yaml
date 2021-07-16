@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Medicinae Backend
+  title: API EXAMPLE MOBILE CHALLENGE
   version: '0.1'
 servers:
   - url: 'http://iclinic-example-api.localhost'
@@ -51,7 +51,7 @@ paths:
             schema:
               type: string
       responses:
-        '201':
+        '200':
           description: sucesso
           content:
             application/json:
@@ -109,7 +109,7 @@ paths:
                             type: boolean
                         type: object
 
-  /api/v1/clinics/{clinic_id}:
+  /clinics/{clinic_id}:
       get:
         tags:
           - Clinics
@@ -146,7 +146,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClinicsRequestModel'
         responses:
-          '201':
+          '200':
             description: sucesso
             content:
               application/json:
@@ -156,7 +156,7 @@ paths:
         tags:
           - Clinics
         summary: Clinics Delete
-        parameters:
+        parameters: []
 
         responses:
           '200':
@@ -231,7 +231,7 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: sucesso
           content:
             application/json:
@@ -288,8 +288,7 @@ paths:
                           active:
                             type: boolean
                         type: object
-
-  /api/v1/patients/{patient_id}:
+  /patients/{patient_id}:
     get:
       tags:
         - Patients
@@ -297,8 +296,7 @@ paths:
       description: >-
         Retorna a listagem do Patients, possibilidade de filtros e
         includes.
-      parameters:
-
+      parameters: []
       responses:
         '200':
           description: sucesso
@@ -326,7 +324,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatientsRequestModel'
       responses:
-        '201':
+        '200':
           description: sucesso
           content:
             application/json:
@@ -389,7 +387,7 @@ paths:
         - name: id
           in: path
           description: Physician ID
-          required: false
+          generated: false
           schema:
             type: string
         - name: name
@@ -405,7 +403,7 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: sucesso
           content:
             application/json:
@@ -463,7 +461,8 @@ paths:
                             type: boolean
                         type: object
 
-  /api/v1/physicians/{physician_id}:
+
+  /physicians/{physician_id}:
     get:
       tags:
         - Physicians
@@ -471,7 +470,7 @@ paths:
       description: >-
         Retorna a listagem do Physicians, possibilidade de filtros e
         includes.
-      parameters:
+      parameters: []
 
       responses:
         '200':
@@ -500,7 +499,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PhysiciansRequestModel'
       responses:
-        '201':
+        '200:
           description: sucesso
           content:
             application/json:
@@ -510,7 +509,7 @@ paths:
       tags:
         - Physicians
       summary: Physicians Delete
-      parameters:
+      parameters: []
 
       responses:
         '200':
@@ -563,7 +562,7 @@ paths:
         - name: id
           in: path
           description: Prescription ID
-          required: false
+          generated: true
           schema:
             type: string
         - name: client_id
@@ -597,7 +596,7 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: sucesso
           content:
             application/json:
@@ -655,7 +654,7 @@ paths:
                             type: boolean
                         type: object
 
-  /api/v1/prescriptions/{prescription_id}:
+  /prescriptions/{prescription_id}:
     get:
       tags:
         - Prescriptions
@@ -663,7 +662,7 @@ paths:
       description: >-
         Retorna a listagem do Prescriptions, possibilidade de filtros e
         includes.
-      parameters:
+      parameters: []
 
       responses:
         '200':
@@ -692,7 +691,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PrescriptionsRequestModel'
       responses:
-        '201':
+        200:
           description: sucesso
           content:
             application/json:
@@ -702,7 +701,7 @@ paths:
       tags:
         - Prescriptions
       summary: Prescriptions Delete
-      parameters:
+      parameters: []
 
       responses:
         '200':
